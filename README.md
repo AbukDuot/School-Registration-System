@@ -7,10 +7,15 @@ Welcome to the St. Daniel University Registration System! This project is design
 ## Features
 
 **Student Registration:** Easy and efficient student registration process.
+
 **Payment Tracking:** Track payment status and history.
+
 **Notifications:** Stay updated with important notifications.
+
 **Admin Panel:** Manage the registration system.
+
 **Inclusive Environment:** Celebrates diversity and creates a safe space for all students.
+
 **Alumni Success:** Graduates excelling in universities worldwide.
 
 ## Prerequisites
@@ -32,15 +37,19 @@ You have basic knowledge of HTML, CSS, and JavaScript.
 ## Setup Instructions
 
 Follow these steps to get the project up and running:
+
  Clone the Repository
+ 
 git clone https://github.com/yourusername/st-daniel-university-registration.git
+
 cd st-daniel-university-registration
 
 **Open the Project in a Text Editor.**
 
 Open the st-daniel-university-registration directory in your preferred text editor.
 
-**Review and Update Configuration**
+## Review and Update Configuration
+
 Open index.html and review the content.
 Update any paths or URLs if necessary.
 
@@ -63,9 +72,12 @@ Navigate through the various pages such as login.html, about.html, register.html
 
 To contribute to this project, follow these steps:
 Fork the repository.
+
 **Create a new branch:** git checkout -b feature/your-feature-name.
+
 **Make your changes and commit them:** git commit -m 'Add some feature'.
 git push origin feature/your-feature-name.
+
 Create a pull request.
 
 ## License
@@ -74,6 +86,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 
-If you have any questions or suggestions, feel free to contact us at email@example.com.
+If you have any questions or suggestions, feel free to contact us at abukmayen123@gmail.com.
 
 Thank you for using the St. Daniel University Registration System!
