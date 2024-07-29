@@ -60,12 +60,19 @@ Navigate through the various pages such as login.html, about.html, register.html
 
 ## Usage
 **Home Page:** Introduction to St. Daniel University and its registration system.
+
 **Login:** User login interface.
+
 **About Us:** Information about the university.
+
 **Register:** Registration form for new students.
+
 **Payment:** Payment tracking interface.
+
 **Tracking Status:** Track the status of registrations.
+
 **Admin:** Admin panel for managing the system.
+
 **Notifications:** Page to view notifications.
 
 ## Contributing
