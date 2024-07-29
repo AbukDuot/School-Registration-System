@@ -1,9 +1,11 @@
 **St. Daniel University Registration System.**
 
-**Overview.**
+## Overview
+
 Welcome to the St. Daniel University Registration System! This project is designed to automate and streamline the student registration process, making it efficient and error-free. The system is built using HTML, CSS, and JavaScript and provides various features such as student registration, payment tracking, notifications, and more.
 
-**Features.**
+## Features
+
 **Student Registration:** Easy and efficient student registration process.
 **Payment Tracking:** Track payment status and history.
 **Notifications:** Stay updated with important notifications.
@@ -57,7 +59,8 @@ Navigate through the various pages such as login.html, about.html, register.html
 **Admin:** Admin panel for managing the system.
 **Notifications:** Page to view notifications.
 
-**Contributing.**
+## Contributing
+
 To contribute to this project, follow these steps:
 Fork the repository.
 **Create a new branch:** git checkout -b feature/your-feature-name.
