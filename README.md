@@ -1,4 +1,4 @@
-**St. Daniel University Registration System**
+**St. Daniel University Registration System**.
 ##Overview
 Welcome to the St. Daniel University Registration System! This project is designed to automate and streamline the student registration process, making it efficient and error-free. The system is built using HTML, CSS, and JavaScript and provides various features such as student registration, payment tracking, notifications, and more.
 
