@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration - St.Daniel University</title>
+    <title>Student Registration - St. Daniel University</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-color: aqua;">
     <header>
-        <center><img src="images/logo2.png" alt="st.Daniel University Logo" class="logo" width="40%"></center><br>
-        
-          
+        <center><img src="images/logo2.png" alt="St. Daniel University Logo" class="logo" width="40%"></center><br>
         <hr>
     </header>
-    <form action="payment.html" method="post">
+    <form id="registrationForm">
         <h2>Student Registration Form</h2>
         <label for="first-name">Student Name:</label>
         <input type="text" id="first-name" name="first-name" required>
-        <label for="first-name">Student ID:</label>
+        <label for="last-name">Student ID:</label>
         <input type="text" id="last-name" name="last-name" required>
         <label for="studentEmail">Email:</label>
         <input type="email" id="studentEmail" name="studentEmail" required>
         <label for="dob">Date of Birth:</label>
         <input type="text" id="dob" name="dob" required>
-
-
-        <!-- Gender selection -->
         <label for="gender">Gender:</label>
         <select id="gender" name="gender" required>
             <option value="">Select Gender</option>
@@ -33,8 +28,6 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select>
-
-        <!-- Class selection  -->
         <div class="form-group">
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" required>
@@ -43,17 +36,16 @@
             <label for="course">Select Course:</label>
             <select id="course" name="course" required>
                 <option value="">--Please choose a course--</option>
-                <option value="course1">Computer science</option>
-                <option value="course2">Business Adminstration</option>
-                <option value="course3">Social work</option>
+                <option value="course1">Computer Science</option>
+                <option value="course2">Business Administration</option>
+                <option value="course3">Social Work</option>
                 <option value="course4">Electrical Engineering</option>
                 <option value="course5">Project Management</option>
                 <option value="course6">Nursing</option>
                 <option value="course7">Food and Nutrition</option>
             </select>
         </div>
-        <!-- Add more fields (address, grade level, course) as needed -->
-        <label for="course">Grade level:</label>
+        <label for="grade">Grade level:</label>
         <input type="number" id="grade" name="grade" required>
         <label for="profilePicture">Upload Documents:</label>
         <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
@@ -67,7 +59,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Register</a></li>
-				<li><a href="login.html">Login</a></li>
+                <li><a href="login.html">Login</a></li>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="student form.html">Student form</a></li>
@@ -79,6 +71,13 @@
         </nav>
         <p>Created by Abuk Mayen. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Perform validation here (if needed)
+            // Redirect to payment.html
+            window.location.href = 'payment.html';
+        });
+    </script>
 </body>
 </html>
