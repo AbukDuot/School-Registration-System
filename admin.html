@@ -3,36 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - St.Daniel University </title>
-    <link rel="stylesheet" href="styles.css">
-    <center><img src="images/logo2.png" alt="Juba High School Logo" class="logo" width="40%"></center><br>
-        <hr>
+    <title>Admin Dashboard - St. Daniel University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .header, .footer {
+            background-color: #125c7c;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .logo {
+            margin-top: 20px;
+            width: 20%;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #104c66;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+            transition: width 0.3s;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #08719e;
+        }
+        .toggle-btn {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 0;
+                position: relative;
+            }
+            .sidebar a {
+                display: none;
+            }
+            .sidebar .toggle-btn {
+                display: block;
+                background-color: #08719e;
+                color: white;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .toggle-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background-color: #08719e;
+                color: white;
+                padding: 10px;
+                border-radius: 4px;
+                cursor: pointer;
+                text-align: center;
+                z-index: 1000;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        h2 {
+            text-align: center;
+            color: #104c66;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #08719e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: hsl(219, 87%, 22%);
+        }
+        .footer nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer nav ul li a:hover {
+            color: #ffd700;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            color: #08719e;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .notifications {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .user-profile {
+            background-color: #e2e3e5;
+            color: #383d41;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .user-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .user-profile h4 {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #104c66;
+            color: white;
+        }
+        .actions button {
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+        }
+    </style>
 </head>
-<body style="background-color: rgb(28, 211, 211);">
-    <header>
+<body>
+    <header class="header">
+        <img src="images/logo2.png" alt="St. Daniel University Logo" class="logo">
+        <h1>St. Daniel University</h1>
     </header>
-    <div class="admin-container">
-        <h2>Admin Dashboard</h2>
-        <p>Generate reports and view analytics here.</p>
-        <button id="generateReport">Generate Report</button><br><br>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="toggle-btn">Menu</div>
+            <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="#userManagement"><i class="fas fa-users"></i> User Management</a>
+            <a href="#reports"><i class="fas fa-file-alt"></i> Reports</a>
+            <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+            <a href="#" onclick="toggleDarkMode()"><i class="fas fa-adjust"></i> Toggle Dark Mode</a>
+            <a href="#privacyPolicy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="#termsOfService"><i class="fas fa-file-contract"></i> Terms of Service</a>
+        </aside>
+        <main class="content">
+            <div class="toggle-btn">Menu</div>
+            <h2>Admin Dashboard</h2>
+            <p>Welcome to the Admin Dashboard. Use the sections below to manage users, generate reports, and more.</p>
+            
+            <!-- User Profile -->
+            <div class="user-profile" id="profile">
+                <img src="images/admin.png" alt="Admin Profile Picture">
+                <h4>Admin Profile</h4>
+                <p>Name: Deborah</p>
+                <p>Email: debby77737896@gmail.com</p>
+                <button>Edit Profile</button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+
+            <!-- User Management Section -->
+            <div class="section" id="userManagement">
+                <h3>User Management</h3>
+                <div class="button-container">
+                    <button onclick="showSection('viewUsersTable')"><i class="fas fa-eye"></i> View Users</button>
+                    <button onclick="showSection('addUserForm')"><i class="fas fa-user-plus"></i> Add User</button>
+                </div>
+                <!-- Add User Form -->
+                <div id="addUserForm" style="display:none;">
+                    <h4>Add User</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" required><br><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required><br><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role:</label>
+                            <select id="role" required><br><br>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" required><br><br>
+                        </div>
+                        <button type="submit">Add User</button>
+                    </form>
+                </div>
+
+                <!-- View Users Table -->
+                <div id="viewUsersTable" style="display:none;">
+                    <h4>View Users</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nyibol</td>
+                                <td>nyibolakuei4@gmail.com</td>
+                                <td>Student</td>
+                                <td class="actions">
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Deborah</td>
+                                <td>abukmayen123@gmail.com</td>
+                                <td>Teacher</td>
+                                <td class="actions">
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Section -->
+            <div class="section" id="reports">
+                <h3>Reports</h3>
+                <p>Generate and view reports.</p>
+                <div class="button-container">
+                    <button onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Generate Reports</button>
+                    <button onclick="generateExcel()"><i class="fas fa-file-excel"></i> View reports</button>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div class="section" id="analytics">
+                <h3>Analytics</h3>
+                <div>
+                    <canvas id="userRegistrationsChart"></canvas>
+                </div>
+                <div>
+                    <canvas id="userRolesChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Privacy Policy -->
+            <div id="privacyPolicy" class="section">
+                <h3>Privacy Policy</h3>
+                <p>Your privacy is important to us. This privacy statement explains the personal data we collect and how we use it.</p>
+                <h4>Information We Collect</h4>
+                <p>We collect various types of information in connection with your use of our services, including:</p>
+                <ul>
+                    <li>Personal identification information (e.g., name, email address)</li>
+                    <li>Usage data (e.g., how you use our services)</li>
+                </ul>
+                <h4>How We Use Your Information</h4>
+                <p>We use your information to:</p>
+                <ul>
+                    <li>Provide and improve our services</li>
+                    <li>Communicate with you about updates and offers</li>
+                </ul>
+                <h4>Data Security</h4>
+                <p>We implement appropriate technical and organizational measures to ensure your data is secure.</p>
+                <h4>Changes to This Policy</h4>
+                <p>We may update this privacy policy from time to time. We will notify you of any significant changes.</p>
+                <h4>Contact Us</h4>
+                <p>If you have any questions about this privacy policy, please contact us at privacy@stdanieluniversity.edu.</p>
+            </div>
+
+            <!-- Terms of Service -->
+            <div id="termsOfService" class="section">
+                <h3>Terms of Service</h3>
+                <p>These terms govern your use of our services. By accessing or using our services, you agree to these terms.</p>
+                <h4>Acceptance of Terms</h4>
+                <p>By using our services, you agree to be bound by these terms. If you do not agree with these terms, you should not use our services.</p>
+                <h4>Use of Services</h4>
+                <p>You agree to use our services only for lawful purposes and in accordance with these terms.</p>
+                <h4>Account Responsibility</h4>
+                <p>You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+                <h4>Limitation of Liability</h4>
+                <p>We are not liable for any indirect, incidental, special, or consequential damages arising from your use of our services.</p>
+                <h4>Changes to Terms</h4>
+                <p>We may update these terms from time to time. Continued use of our services constitutes acceptance of the new terms.</p>
+                <h4>Contact Us</h4>
+                <p>If you have any questions about these terms, please contact us at terms@stdanieluniversity.edu.</p>
+            </div>
+        </main>
     </div>
-    <hr>
-    <footer>
+    <footer class="footer">
+        <p>&copy; 2024 St. Daniel University. All rights reserved.</p>
         <nav>
             <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="payment.html">Payment</a></li>
-                <li><a href="status.html">Tracking Status</a></li>
-                <li><a href="admin.html">Admin</a></li>
-                <li><a href="notification.html">Notifications</a></li>
+                <li><a href="#privacyPolicy">Privacy Policy</a></li>
+                <li><a href="#termsOfService">Terms of Service</a></li>
             </ul>
-
         </nav>
-        <p>Created by St.Daniel University. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script>
+        document.querySelector('.toggle-btn').addEventListener('click', function() {
+            var sidebar = document.querySelector('.sidebar');
+            if (sidebar.style.width === '250px') {
+                sidebar.style.width = '0';
+            } else {
+                sidebar.style.width = '250px';
+            }
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function showSection(sectionId) {
+            document.getElementById('addUserForm').style.display = 'none';
+            document.getElementById('viewUsersTable').style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('PDF Report Content', 10, 10);
+            doc.save('report.pdf');
+        }
+
+        function generateExcel() {
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet([
+                { Name: "Nyibol", Email: "nyibolakuei4@gmail.com", Role: "Student" },
+                { Name: "Deborah", Email: "abukmayen123@gmail.com", Role: "Teacher" }
+            ]);
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+            XLSX.writeFile(wb, 'report.xlsx');
+        }
+
+        // User Registrations Chart
+        var ctx1 = document.getElementById('userRegistrationsChart').getContext('2d');
+        var userRegistrationsChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'User Registrations',
+                    data: [5, 10, 15, 20, 25, 30, 35],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // User Roles Chart
+        var ctx2 = document.getElementById('userRolesChart').getContext('2d');
+        var userRolesChart = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Students', 'Teachers', 'Admins'],
+                datasets: [{
+                    label: 'User Roles',
+                    data: [60, 30, 10],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
 </body>
 </html>

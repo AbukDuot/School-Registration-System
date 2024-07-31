@@ -3,40 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status - St.Daniel University</title>
-    <link rel="stylesheet" href="styles.css">
-    <center><img src="images/logo2.png" alt="Juba High School Logo" class="logo" width="40%"></center>
-        <hr>
+    <title>Tracking Status - St. Daniel University</title>
+    <style>
+        body {
+            background-color: rgb(84, 189, 189);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header, .footer {
+            background-color: #125c7c;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .logo {
+            width: 40%;
+            max-width: 150px; 
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #104c66;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .form-group input {
+            border: 1px solid #ccc;
+        }
+        .form-group button {
+            background-color: #08719e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: hsl(219, 87%, 22%);
+        }
+        #trackingMessage {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .footer nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                width: 60%; 
+            }
+            .container {
+                width: 95%; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 80%; 
+            }
+            .container {
+                padding: 10px; 
+            }
+            .form-group input, .form-group button {
+                padding: 8px; 
+            }
+        }
+    </style>
 </head>
-<body style="background-color: rgb(20, 184, 184);">
-    <header>
-        <h1>Track Registration</h1>
+<body>
+    <header class="header">
+        <img src="images/logo2.png" alt="St. Daniel University Logo" class="logo">
+        <h1>St. Daniel University</h1>
     </header>
     <main>
-        <form id="statusForm">
-            <label for="userId">User ID:</label>
-            <input type="text" id="userId" name="userId" required>
-            <button type="submit">Check Status</button>
-        </form>
-        <div id="statusMessage"></div>
+        <div class="container">
+            <h1>Tracking Status</h1>
+            <form id="trackingForm">
+                <div class="form-group">
+                    <label for="trackingNumber"><b>Tracking Number:</b></label>
+                    <input type="text" id="trackingNumber" name="trackingNumber" placeholder="Enter tracking number" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Check Status</button>
+                </div>
+            </form>
+            <div id="trackingMessage"></div>
+        </div>
     </main>
     <hr>
-    <footer>
+    <footer class="footer">
         <nav>
             <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="register.html">Register</a></li>
+                <li><a href="index.html">Login</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="student form.html">Student Form</a></li>
                 <li><a href="payment.html">Payment</a></li>
                 <li><a href="status.html">Tracking Status</a></li>
                 <li><a href="admin.html">Admin</a></li>
                 <li><a href="notification.html">Notifications</a></li>
             </ul>
-
         </nav>
-        <p>Created by St.Daniel University. All rights reserved.</p>
+        <p>Created by St. Daniel University. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        // trackingScript.js
+
+document.getElementById('trackingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const trackingNumber = document.getElementById('trackingNumber').value;
+    const trackingMessage = document.getElementById('trackingMessage');
+
+    // Simulate tracking status
+    // In a real application, you would make an API call here
+    if (trackingNumber) {
+        trackingMessage.textContent = `Tracking status for ${trackingNumber}: Pending...`; // Example message
+    } else {
+        trackingMessage.textContent = 'Please enter a tracking number.';
+    }
+});
+
+    </script>
 </body>
 </html>

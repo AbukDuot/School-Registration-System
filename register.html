@@ -1,83 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration - St.Daniel University</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration - St. Daniel University</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(11, 252, 220, 0.7), rgba(5, 112, 107, 0.7)), url(images/contactuscover1.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        .register-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(15, 247, 208, 0.1);
+            width: 350px;
+            max-width: 100%;
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            display: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0cfdf1;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0afdfd;
+        }
+    </style>
 </head>
-<body style="background-color: aqua;">
-    <header>
-        <center><img src="images/logo2.png" alt="st.Daniel University Logo" class="logo" width="40%"></center><br>
-        
-          
-        <hr>
-    </header>
-    <form>
-        <h2>Student Registration Form</h2>
-        <label for="first-name">First Name:</label>
-        <input type="text" id="first-name" name="first-name" required>
-        <label for="first-name">Last Name:</label>
-        <input type="text" id="last-name" name="last-name" required>
-        <label for="dob">Date of Birth:</label>
-        <input type="text" id="dob" name="dob" required>
-        <label for="studentEmail">Email:</label>
-        <input type="email" id="studentEmail" name="studentEmail" required>
-        <!-- Add other input fields (last name, date of birth, email, etc.) -->
-
-        <!-- Gender selection -->
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
-
-        <!-- Class selection  -->
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div class="form-group">
-            <label for="course">Select Course:</label>
-            <select id="course" name="course" required>
-                <option value="">--Please choose a course--</option>
-                <option value="course1">Computer science</option>
-                <option value="course2">Business Adminstration</option>
-                <option value="course3">Social work</option>
-                <option value="course4">Electrical Engineering</option>
-                <option value="course5">Project Management</option>
-                <option value="course6">Nursing</option>
-                <option value="course7">Food and Nutrition</option>
-            </select>
-        </div>
-        <!-- Add more fields (address, grade level, course) as needed -->
-        <label for="course">Grade level:</label>
-        <input type="number" id="grade" name="grade" required>
-        <label for="profilePicture">Profile Picture:</label>
-        <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
-        <div class="buttons">
-            <button type="reset">Reset</button>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-    <hr>
-    <footer>
-        <nav>
-            <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="payment.html">Payment</a></li>
-                <li><a href="status.html">Tracking Status</a></li>
-                <li><a href="admin.html">Admin</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-            </ul>
-        </nav>
-        <p>Created by Abuk Mayen. All rights reserved.</p>
-    </footer>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="signupForm" action="index.html" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                <span class="error-message" id="confirmPasswordError"></span>
+            </div>
+            <button type="submit">Register Now</button>
+        </form>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

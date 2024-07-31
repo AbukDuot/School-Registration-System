@@ -3,96 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>St.Daniel University Registration System</title>
+    <title>Login - St.Daniel University</title>
     <link rel="stylesheet" href="style.css">
-    <center><img src="images/logo2.png" alt="Juba High School Logo" class="logo" width="40%"></center>
-
 </head>
-<body style="background-color: rgba(27, 206, 206, 0.733);">
+<body style="background-color: aqua;">
+
     <header>
+            <center><img src="images/logo2.png" alt="St.Daniel University Logo" class="logo" width="40%"></center><br>
+        
+            <header>
        
-        <nav class="myNav">
-            <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us </a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="payment.html">Payment</a></li>
-                <li><a href="status.html">Tracking Status</a></li>
-                <li><a href="admin.html">Admin</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-            </ul>
-
-        </nav>
-    </header>
-
-        <!-- Slideshow container -->
-<div class="slideshow-container">
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="images/students.jpg" style="width:100%">
-        <div class="text">STUDENTS DISCUSSING </div>
-    </div>
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="images/school building.jpeg" style="width:100%">
-        <div class="text">school main Hall</div>
-    </div>
-    <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="images/team.jpg" style="width:100%">
-        <div class="text"> STUDENTS AT LEISURE TIME</div>
-    </div>
-    <!-- Add more slides with similar structure -->
-    <!-- ... -->
+                <nav class="myNav">
+                    <ul>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="index.html">Login</a></li>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us </a></li>
+                        <li><a href="student form.html">Student form</a></li>
+                        <li><a href="payment.html">Payment</a></li>
+                        <li><a href="status.html">Tracking Status</a></li>
+                        <li><a href="admin.html">Admin</a></li>
+                        <li><a href="notification.html">Notifications</a></li>
+                    </ul>
+        
+                </nav>
+            </header>
+        
+        
     
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-</div>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <!-- Add more dots for additional slides -->
-    <!-- ... -->
-</div>
-<div>
-    <h1>Welcome To St.Daniel University Online Registration System!. This system automates and streamlines the student registration process, making it efficient and error-free</h1>
-    <p>
-At St.Daniel University, we believe in the transformative power of education.<br>
- Our mission is to empower students with knowledge, nurture their curiosity, and prepare them for a bright future.<br>
- Here, you’ll find a vibrant community where learning knows no bounds.</p>
-
- <img src="images/R.jpeg" width="100%" height="50%">
- <h2>Explore Our Features:</h2>
- <p>
-<b>Quality Education:</b> Our dedicated faculty ensures that every student receives a top-notch education.<br><br>
-<b>Inclusive Environment:</b> We celebrate diversity and create a safe space for all students.<br><br>
-<b>Peacebuilding: </b>St.Daniel University promotes understanding, tolerance, and conflict resolution.<br><br>
-<b>Alumni Success:</b> Our graduates have gone on to excel in universities worldwide.<br><br>
-Join us on this educational journey! 📚✨</p>
-<a href="about.html">Learn More</a>
-</div>
-<hr>
+        
+        <h1>Login</h1>
+    </header>
+    <main>
+        <form action="home.html" method="post">
+            <div class="imgcontainer">
+                <img src="images/login.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+        
+        <div id="loginMessage"></div>
+    </main>
+    <hr>
     <footer>
-        <nav>
-            <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="payment.html">Payment</a></li>
-                <li><a href="status.html">Tracking Status</a></li>
-                <li><a href="admin.html">Admin</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-            </ul>
-
-        </nav>
+    
         <p>Created by St.Daniel University. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
 </body>
 </html>

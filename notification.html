@@ -3,50 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notifications - St.Daniel University</title>
-    <link rel="stylesheet" href="styles.css">
-    <center><img src="images/logo2.png" alt="Juba High School Logo" class="logo" width="40%"></center><br>
-        
-        
-        
-        
-        <hr>
+    <title>Notifications - St. Daniel University</title>
+    <style>
+        body {
+            background-color: rgb(84, 189, 189);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header, .footer {
+            background-color: #125c7c;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .logo {
+            width: 40%;
+            max-width: 150px; 
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #104c66;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #08719e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: hsl(219, 87%, 22%);
+        }
+        #notificationMessage {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .footer nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                width: 60%; 
+            }
+            .container {
+                width: 95%; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 80%; 
+            }
+            .container {
+                padding: 10px; 
+            }
+            .form-group input, .form-group textarea, .form-group button {
+                padding: 8px; 
+            }
+        }
+    </style>
 </head>
-<body style="background-color: rgb(84, 189, 189);">
-    <header>
-        <h1>Notifications</h1>
+<body>
+    <header class="header">
+        <img src="images/logo2.png" alt="St. Daniel University Logo" class="logo">
+        <h1>St. Daniel University</h1>
     </header>
     <main>
-        <form id="notificationForm">
-            <div class="container">
-                <label for="Email"><b>Email:</b></label>
-                <input type="text" placeholder="Enter email" name="email" required><br><br>
-                <label for="SMS"><b>SMS Alerts:</b></label>
-                <input type="number" placeholder="" name="Enter number" required><br><br>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" required></textarea><br><br>
-            <button type="submit">Send Notification</button>
-        </form>
-        <div id="notificationMessage"></div>
+        <div class="container">
+            <h1>Notifications</h1>
+            <form id="notificationForm">
+                <div class="form-group">
+                    <label for="email"><b>Email:</b></label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber"><b>SMS Alerts:</b></label>
+                    <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><b>Message:</b></label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Notification</button>
+                </div>
+            </form>
+            <div id="notificationMessage"></div>
+        </div>
     </main>
     <hr>
-    <footer>
+    <footer class="footer">
         <nav>
             <ul>
-				<li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="register.html">Register</a></li>
+                <li><a href="index.html">Login</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="student form.html">Student Form</a></li>
                 <li><a href="payment.html">Payment</a></li>
                 <li><a href="status.html">Tracking Status</a></li>
                 <li><a href="admin.html">Admin</a></li>
                 <li><a href="notification.html">Notifications</a></li>
             </ul>
-
         </nav>
-        <p>Created by St.Daniel University. All rights reserved.</p>
+        <p>Created by St. Daniel University. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('notificationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+            const notificationMessage = document.getElementById('notificationMessage');
+
+            // Validate inputs
+            if (email && phoneNumber && message) {
+                // Simulate sending notification
+                notificationMessage.textContent = `Notification sent successfully to ${email} and ${phoneNumber}.`;
+                document.getElementById('notificationForm').reset(); // Reset the form
+            } else {
+                notificationMessage.textContent = 'Please fill in all fields.';
+            }
+        });
+    </script>
 </body>
 </html>
-
