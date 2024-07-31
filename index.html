@@ -9,33 +9,25 @@
 <body style="background-color: aqua;">
 
     <header>
-            <center><img src="images/logo2.png" alt="St.Daniel University Logo" class="logo" width="40%"></center><br>
-        
-            <header>
-       
-                <nav class="myNav">
-                    <ul>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="index.html">Login</a></li>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="about.html">About Us </a></li>
-                        <li><a href="student form.html">Student form</a></li>
-                        <li><a href="payment.html">Payment</a></li>
-                        <li><a href="status.html">Tracking Status</a></li>
-                        <li><a href="admin.html">Admin</a></li>
-                        <li><a href="notification.html">Notifications</a></li>
-                    </ul>
-        
-                </nav>
-            </header>
-        
-        
-    
-        
+        <center><img src="images/logo2.png" alt="St.Daniel University Logo" class="logo" width="40%"></center><br>
+        <nav class="myNav">
+            <ul>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="index.html">Login</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us </a></li>
+                <li><a href="student form.html">Student form</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="status.html">Tracking Status</a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="notification.html">Notifications</a></li>
+            </ul>
+        </nav>
         <h1>Login</h1>
     </header>
+    
     <main>
-        <form action="home.html" method="get">
+        <form id="loginForm">
             <div class="imgcontainer">
                 <img src="images/login.png" alt="Avatar" class="avatar">
             </div>
@@ -54,13 +46,20 @@
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
-        
         <div id="loginMessage"></div>
     </main>
-    <hr>
-    <footer>
     
-        <p>Created by Abuk Mayen. All rights reserved.</p>
+    <hr>
+    
+    <footer>
+        <p>Created by St.Daniel University. All rights reserved.</p>
     </footer>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'home.html';
+        });
+    </script>
 </body>
 </html>
